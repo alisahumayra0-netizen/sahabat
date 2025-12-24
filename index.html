@@ -80,6 +80,15 @@
             align-items: center;
             justify-content: center;
             color: #555;
+            flex-direction: column;
+        }
+
+        .signature {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            font-style: italic;
         }
 
         .emoji {
@@ -106,83 +115,6 @@
 <body>
 
 <audio id="bgMusic" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-betterdays.mp3" type="audio/mpeg">
-</audio>
+    <source src="
 
-<div class="container">
-    <div id="step-name">
-        <h1>Halo.. 👋</h1>
-        <p>Tulis namamu dulu ya?</p>
-        <input type="text" id="input-nama" placeholder="Nama kamu...">
-        <br>
-        <button class="btn" onclick="showContent()">Buka ✨</button>
-    </div>
-
-    <div id="step-final" class="hidden">
-        <h1>Halo, <span id="user-name"></span>! 😊</h1>
-        <p style="font-size: 0.9rem;">Klik tombol di bawah ini ya:</p>
-        
-        <div class="btn-group">
-            <button class="btn" onclick="changeMsg(1)">Semangat</button>
-            <button class="btn" onclick="changeMsg(2)">Istirahat</button>
-            <button class="btn" onclick="changeMsg(3)">Ingat Ini</button>
-            <button class="btn" onclick="changeMsg(4)">Makasih ya</button>
-        </div>
-
-        <div id="display-msg" class="message-box">
-            Pilih salah satu tombol di atas..
-        </div>
-
-        <p style="margin-top: 25px; font-size: 0.75rem; color: #99a; font-style: italic;">
-            (Musik santai sedang diputar untukmu)
-        </p>
-    </div>
-</div>
-
-<script>
-    function showContent() {
-        const nama = document.getElementById('input-nama').value;
-        if (nama.trim() !== "") {
-            document.getElementById('step-name').classList.add('hidden');
-            document.getElementById('step-final').classList.remove('hidden');
-            document.getElementById('user-name').innerText = nama;
-            
-            // Putar Musik
-            const audio = document.getElementById('bgMusic');
-            audio.volume = 0.5; // Set volume agak pelan biar nyaman
-            audio.play();
-            
-            startEmojiRain();
-        } else {
-            alert("Namanya diisi dulu ya..");
-        }
-    }
-
-    function changeMsg(type) {
-        const box = document.getElementById('display-msg');
-        if(type === 1) box.innerText = "Apapun yang lagi kamu perjuangkan, semoga dimudahkan ya. Kamu kuat lebih dari yang kamu kira.";
-        if(type === 2) box.innerText = "Kalau capek, berhenti sebentar ya. Dunia nggak akan marah kalau kamu tidur lebih awal malam ini.";
-        if(type === 3) box.innerText = "Cuma mau bilang kalau kehadiranmu itu berarti. Jangan pernah merasa sendirian ya.";
-        if(type === 4) box.innerText = "Terima kasih sudah bertahan sampai hari ini. Kamu sudah melakukan yang terbaik!";
-    }
-
-    function startEmojiRain() {
-        const emojis = ['✨', '☁️', '🌙', '⭐', '🎈', '🎐'];
-        setInterval(() => {
-            const emoji = document.createElement('div');
-            emoji.classList.add('emoji');
-            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-            emoji.style.left = Math.random() * 100 + "vw";
-            emoji.style.fontSize = Math.random() * 15 + 10 + "px";
-            emoji.style.animationDuration = Math.random() * 3 + 4 + "s";
-            emoji.style.opacity = Math.random() * 0.7;
-            document.body.appendChild(emoji);
-            setTimeout(() => { emoji.remove(); }, 6000);
-        }, 500);
-    }
-</script>
-
-</body>
-</html>
-     
-        
+                    
