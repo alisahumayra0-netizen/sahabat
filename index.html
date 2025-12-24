@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You ✨</title>
+    <title>Sesuatu Untukmu ✨</title>
     <style>
         :root {
-            --primary-blue: #3a86ff;
-            --bg-blue: #ebf2ff;
-            --text-dark: #2d3436;
+            --primary-blue: #5fa8d3;
+            --bg-blue: #f0f7fa;
+            --text-dark: #334756;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #a2c2e8 0%, #ffffff 100%);
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(180deg, #d4eaf7 0%, #ffffff 100%);
             color: var(--text-dark);
             display: flex;
             justify-content: center;
@@ -25,58 +25,61 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             width: 100%;
             max-width: 380px;
             text-align: center;
             z-index: 10;
+            backdrop-filter: blur(10px);
         }
 
-        h1 { color: var(--primary-blue); font-size: 1.5rem; }
+        h1 { color: var(--primary-blue); font-size: 1.6rem; margin-bottom: 20px; }
 
         input[type="text"] {
-            width: 85%;
+            width: 90%;
             padding: 12px;
-            border: 1.5px solid #d1d8e0;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border: 1px solid #c9d6df;
+            border-radius: 12px;
+            margin-bottom: 20px;
             outline: none;
             font-size: 1rem;
             text-align: center;
+            background: #fdfdfd;
         }
 
         .btn {
             background: var(--primary-blue);
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 10px 18px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
             margin: 5px;
             transition: 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        .btn:hover { background: #2a6edb; transform: scale(1.05); }
+        .btn:hover { background: #4a90b5; transform: translateY(-2px); }
 
         .hidden { display: none; }
 
         .message-box {
-            background: #f8faff;
-            padding: 18px;
-            margin-top: 15px;
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
             line-height: 1.6;
             font-size: 1rem;
-            border-radius: 10px;
-            border: 1px solid #e1e8f0;
-            min-height: 60px;
+            border-radius: 15px;
+            border: 1px solid #eef2f3;
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #555;
         }
 
         .emoji {
@@ -85,6 +88,7 @@
             z-index: 1;
             animation: fall linear forwards;
             user-select: none;
+            pointer-events: none;
         }
 
         @keyframes fall {
@@ -95,41 +99,43 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 15px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
 <audio id="bgMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <source src="https://www.bensound.com/bensound-music/bensound-betterdays.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
     <div id="step-name">
-        <h1>Halo! 👋</h1>
-        <p>Boleh tau nama kamu?</p>
-        <input type="text" id="input-nama" placeholder="Ketik di sini...">
+        <h1>Halo.. 👋</h1>
+        <p>Tulis namamu dulu ya?</p>
+        <input type="text" id="input-nama" placeholder="Nama kamu...">
         <br>
-        <button class="btn" onclick="showContent()">Yuk Masuk ✨</button>
+        <button class="btn" onclick="showContent()">Buka ✨</button>
     </div>
 
     <div id="step-final" class="hidden">
-        <h1>Semangat, <span id="user-name"></span>! 😊</h1>
-        <p>Klik tombol di bawah untuk pesanmu:</p>
+        <h1>Halo, <span id="user-name"></span>! 😊</h1>
+        <p style="font-size: 0.9rem;">Klik tombol di bawah ini ya:</p>
         
         <div class="btn-group">
-            <button class="btn" onclick="changeMsg(1)">Capek ya?</button>
-            <button class="btn" onclick="changeMsg(2)">Butuh Moodbooster?</button>
-            <button class="btn" onclick="changeMsg(3)">Tentang Hari Ini</button>
-            <button class="btn" onclick="changeMsg(4)">Self Reward</button>
+            <button class="btn" onclick="changeMsg(1)">Semangat</button>
+            <button class="btn" onclick="changeMsg(2)">Istirahat</button>
+            <button class="btn" onclick="changeMsg(3)">Ingat Ini</button>
+            <button class="btn" onclick="changeMsg(4)">Makasih ya</button>
         </div>
 
         <div id="display-msg" class="message-box">
-            Klik salah satu tombol di atas ya!
+            Pilih salah satu tombol di atas..
         </div>
 
-        <p style="margin-top: 20px; font-size: 0.8rem; color: #636e72;">Musik pengiring sedang diputar... 🎵</p>
+        <p style="margin-top: 25px; font-size: 0.75rem; color: #99a; font-style: italic;">
+            (Musik santai sedang diputar untukmu)
+        </p>
     </div>
 </div>
 
@@ -143,37 +149,40 @@
             
             // Putar Musik
             const audio = document.getElementById('bgMusic');
-            audio.play().catch(e => console.log("Audio play prevented by browser"));
+            audio.volume = 0.5; // Set volume agak pelan biar nyaman
+            audio.play();
             
             startEmojiRain();
         } else {
-            alert("Isi nama kamu dulu ya!");
+            alert("Namanya diisi dulu ya..");
         }
     }
 
     function changeMsg(type) {
         const box = document.getElementById('display-msg');
-        if(type === 1) box.innerText = "Istirahat sebentar ya. Dunia nggak akan lari kok kalau kamu rehat sejenak. Kamu sudah hebat!";
-        if(type === 2) box.innerText = "Ingat ya, ada orang yang selalu bersyukur karena kenal sama kamu. Keep smiling!";
-        if(type === 3) box.innerText = "Apapun yang terjadi hari ini, anggap itu pelajaran. Besok pasti ada hal baik yang nunggu kamu.";
-        if(type === 4) box.innerText = "Jangan lupa jajan makanan enak hari ini! Kamu layak dapet apresiasi buat kerja kerasmu.";
+        if(type === 1) box.innerText = "Apapun yang lagi kamu perjuangkan, semoga dimudahkan ya. Kamu kuat lebih dari yang kamu kira.";
+        if(type === 2) box.innerText = "Kalau capek, berhenti sebentar ya. Dunia nggak akan marah kalau kamu tidur lebih awal malam ini.";
+        if(type === 3) box.innerText = "Cuma mau bilang kalau kehadiranmu itu berarti. Jangan pernah merasa sendirian ya.";
+        if(type === 4) box.innerText = "Terima kasih sudah bertahan sampai hari ini. Kamu sudah melakukan yang terbaik!";
     }
 
     function startEmojiRain() {
-        const emojis = ['✨', '☁️', '☀️', '⭐', '🌊', '🦾', '🌈', '🍭'];
+        const emojis = ['✨', '☁️', '🌙', '⭐', '🎈', '🎐'];
         setInterval(() => {
             const emoji = document.createElement('div');
             emoji.classList.add('emoji');
             emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
             emoji.style.left = Math.random() * 100 + "vw";
-            emoji.style.fontSize = Math.random() * 20 + 15 + "px";
-            emoji.style.animationDuration = Math.random() * 2 + 3 + "s";
-            emoji.style.opacity = Math.random();
+            emoji.style.fontSize = Math.random() * 15 + 10 + "px";
+            emoji.style.animationDuration = Math.random() * 3 + 4 + "s";
+            emoji.style.opacity = Math.random() * 0.7;
             document.body.appendChild(emoji);
-            setTimeout(() => { emoji.remove(); }, 5000);
-        }, 400);
+            setTimeout(() => { emoji.remove(); }, 6000);
+        }, 500);
     }
 </script>
 
 </body>
 </html>
+     
+        
